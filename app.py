@@ -6,226 +6,90 @@ import datetime as dt
 from typing import List, Dict, Tuple
 from collections import defaultdict
 
-# ===== Selenium + BS4 =====
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support.ui import WebDriverWait
-from webdriver_manager.chrome import ChromeDriverManager
-from bs4 import BeautifulSoup
-from urllib.parse import urljoin
-
+# ... (기존 import 및 유틸 함수 fetch_top30_search_ratio 등은 동일하게 유지) ...
 
 # -------------------------------
-# 유틸
+# 추가: 과거 TXT 파일에서 점수 파싱
 # -------------------------------
-def now_kst() -> dt.datetime:
-    return dt.datetime.now(dt.timezone(dt.timedelta(hours=9)))
+def parse_past_txt(date_str: str) -> Dict[str, float]:
+    """'daily_top30_20231027.txt' 파일에서 {종목명: 점수} 딕셔너리 추출"""
+    target_path = f"data/daily_top30_{date_str}.txt"
+    past_scores = {}
+    if not os.path.exists(target_path):
+        return past_scores
 
+    # 정규식: "순위. 종목명 | 합계: 점수" 패턴 매칭
+    pattern = re.compile(r"^\s*\d+\.\s+(.+?)\s*\|\s*합계:\s*([0-9\.]+)")
+    
+    with open(target_path, "r", encoding="utf-8-sig") as f:
+        for line in f:
+            match = pattern.search(line)
+            if match:
+                name = match.group(1).strip()
+                score = float(match.group(2))
+                past_scores[name] = score
+    return past_scores
 
-def ensure_data_dir():
-    os.makedirs("data", exist_ok=True)
-
-
-def _to_float2(s: str) -> float:
-    if not s:
-        return 0.0
-    m = re.findall(r"[0-9\.,]+", s)
-    if not m:
-        return 0.0
-    try:
-        return round(float(m[0].replace(",", "")), 2)
-    except:
-        return 0.0
-
-
-# -------------------------------
-# 오래된 파일 정리
-# -------------------------------
-def cleanup_old_csv_files(days: int = 3):
-    today = now_kst().date()
-    pattern = re.compile(r"naver_top_searchratio_(\d{8})_(\d{4})\.csv$")
-    for fp in glob.glob("data/naver_top_searchratio_*.csv"):
-        m = pattern.search(os.path.basename(fp))
-        if not m:
-            continue
-        d = dt.datetime.strptime(m.group(1), "%Y%m%d").date()
-        if (today - d).days > days:
-            os.remove(fp)
-
-
-def cleanup_old_txt_files(days: int = 14):
-    today = now_kst().date()
-    pattern = re.compile(r"daily_top30_(\d{8})\.txt$")
-    for fp in glob.glob("data/daily_top30_*.txt"):
-        m = pattern.search(os.path.basename(fp))
-        if not m:
-            continue
-        d = dt.datetime.strptime(m.group(1), "%Y%m%d").date()
-        if (today - d).days > days:
-            os.remove(fp)
-
+def get_change_str(current: float, past: float) -> str:
+    """등락폭 계산 및 기호 표시"""
+    if past == 0: return "(-)"
+    diff_percent = ((current - past) / past) * 100
+    
+    if diff_percent > 0:
+        return f"▲{diff_percent:+.1f}%"
+    elif diff_percent < 0:
+        return f"▼{diff_percent:+.1f}%"
+    else:
+        return "(-)"
 
 # -------------------------------
-# 1) 인기검색 크롤링
+# 5) 합계 Top30 → TXT 저장 (수정됨)
 # -------------------------------
-def fetch_top30_search_ratio() -> List[Dict]:
-    options = Options()
-    options.add_argument("--headless=new")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-    service = Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=service, options=options)
-
-    base_url = "https://finance.naver.com/sise/lastsearch2.naver"
-    driver.get(base_url)
-
-    WebDriverWait(driver, 5).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, "table.type_5"))
-    )
-
-    soup = BeautifulSoup(driver.page_source, "html.parser")
-    driver.quit()
-
-    table = soup.select_one("table.type_5")
-
-    rows = []
-    ts = now_kst().strftime("%Y-%m-%d %H:%M:%S")
-    rank = 0
-
-    for tr in table.select("tbody tr"):
-        tds = tr.find_all("td")
-        if len(tds) < 3:
-            continue
-
-        name = tds[1].get_text(strip=True)
-        score = _to_float2(tds[-1].get_text(strip=True))
-
-        rank += 1
-        rows.append({
-            "rank": rank,
-            "name": name,
-            "score": f"{score:.2f}",
-            "ts": ts
-        })
-        if rank >= 30:
-            break
-
-    return rows
-
-
-# -------------------------------
-# 2) CSV 저장
-# -------------------------------
-def save_snapshot_csv(rows: List[Dict]):
+def save_daily_top30_txt(score_map: Dict[str, float]) -> str:
     ensure_data_dir()
-    fn = f"data/naver_top_searchratio_{now_kst().strftime('%Y%m%d_%H%M')}.csv"
-    with open(fn, "w", newline="", encoding="utf-8-sig") as f:
-        w = csv.DictWriter(f, fieldnames=["rank", "name", "score", "ts"])
-        w.writeheader()
-        w.writerows(rows)
+    now = now_kst()
+    today_str = now.strftime("%Y%m%d")
+    out_fn = f"data/daily_top30_{today_str}.txt"
 
-    cleanup_old_csv_files(3)
-
-
-# -------------------------------
-# 3) 최근 N개 CSV 목록
-# -------------------------------
-FNAME_RE = re.compile(r"naver_top_searchratio_(\d{8})_(\d{4})\.csv$")
-
-
-def list_recent_snapshots(limit: int = 12, ref_date: dt.date | None = None) -> List[str]:
-    files = glob.glob("data/naver_top_searchratio_*.csv")
-
-    def _key(fp: str):
-        m = FNAME_RE.search(os.path.basename(fp))
-        if not m:
-            return ("00000000", "0000")
-        return m.group(1), m.group(2)
-
-    files = sorted(files, key=_key, reverse=True)
-
-    if ref_date:
-        files = [
-            f for f in files
-            if dt.datetime.strptime(_key(f)[0], "%Y%m%d").date() <= ref_date
-        ]
-
-    return files[:limit]
-
-
-# -------------------------------
-# 4) CSV 합계 계산 (변경 없음)
-# -------------------------------
-def aggregate_scores_from_files(files: List[str]) -> Dict[str, float]:
-    acc = defaultdict(float)
-    for fp in files:
-        with open(fp, encoding="utf-8-sig") as f:
-            for row in csv.DictReader(f):
-                acc[row["name"]] += float(row["score"])
-    return acc
-
-
-# -------------------------------
-# 5) daily_top30 + 비교
-# -------------------------------
-def save_daily_top30_txt(today_map: Dict[str, float]):
-    ensure_data_dir()
-    today = now_kst().date()
-    out_fn = f"data/daily_top30_{today.strftime('%Y%m%d')}.txt"
-
-    past_maps: Dict[int, Dict[str, float]] = {}
-
+    # 1. 과거 데이터 로드 (1일 전 ~ 7일 전)
+    past_data_map = {}
     for d in range(1, 8):
-        ref_date = today - dt.timedelta(days=d)
-        files = list_recent_snapshots(12, ref_date)
-        if files:
-            past_maps[d] = aggregate_scores_from_files(files)
-        else:
-            past_maps[d] = {}
+        target_date = (now - dt.timedelta(days=d)).strftime("%Y%m%d")
+        past_data_map[d] = parse_past_txt(target_date)
 
-    top = sorted(today_map.items(), key=lambda x: -x[1])[:30]
+    recent_files = list_recent_snapshots(limit=12)
+    top = sorted(score_map.items(), key=lambda x: (-x[1], x[0]))[:30]
 
     lines = []
-    lines.append("[네이버 인기검색 합계 Top30] (최근 12 CSV 합계)")
-    lines.append(f"생성시각: {now_kst().strftime('%Y-%m-%d %H:%M:%S')}")
-    lines.append("-" * 60)
+    lines.append(f"================================================")
+    lines.append(f"[네이버 인기검색 합계 Top30 - 등락 분석]")
+    lines.append(f"생성시각: {now.strftime('%Y-%m-%d %H:%M:%S')}")
+    lines.append(f"참조 스냅샷: {len(recent_files)}개")
+    lines.append(f"================================================\n")
 
     for i, (name, total) in enumerate(top, 1):
-        lines.append(f"{i:2d}. {name} | 합계: {total:.2f}")
-
-        comps = []
-        for d in range(1, 8):
-            prev_map = past_maps[d]
-            if name not in prev_map:
-                comps.append(f"D-{d}: NEW")
-            else:
-                prev = prev_map[name]
-                chg = (total - prev) / prev * 100
-                if chg > 0:
-                    comps.append(f"D-{d}: ▲ +{chg:.2f}%")
-                elif chg < 0:
-                    comps.append(f"D-{d}: ▼ {chg:.2f}%")
-                else:
-                    comps.append(f"D-{d}: 0.00%")
-
-        lines.append("     " + "  ".join(comps))
+        # 현재 정보
+        row_str = f"{i:2d}. {name} | 합계: {total:.2f}\n"
+        
+        # 대비 정보 (1일전, 3일전, 7일전 등 주요 지표만 표시하거나 모두 표시)
+        changes = []
+        for day, scores in past_data_map.items():
+            past_val = scores.get(name, 0)
+            if past_val > 0:
+                changes.append(f"{day}일전:{get_change_str(total, past_val)}")
+        
+        if changes:
+            row_str += f"    └─ 비교: {' / '.join(changes)}\n"
+        else:
+            row_str += f"    └─ 비교: (과거 기록 없음)\n"
+        
+        lines.append(row_str) # 종목 간 가시성을 위해 내부에 \n 포함
 
     with open(out_fn, "w", encoding="utf-8-sig") as f:
-        f.write("\n".join(lines))
+        f.write("\n".join(lines) + "\n")
 
-    cleanup_old_txt_files(14)
+    print(f"✅ 일일 Top30(등락폭 포함) 저장 완료: {out_fn}")
+    cleanup_old_txt_files(days=14)
+    return out_fn
 
-
-# -------------------------------
-# 메인
-# -------------------------------
-if __name__ == "__main__":
-    rows = fetch_top30_search_ratio()
-    save_snapshot_csv(rows)
-
-    today_files = list_recent_snapshots(12)
-    score_map = aggregate_scores_from_files(today_files)
-    save_daily_top30_txt(score_map)
+# (이후 메인 실행 부분은 기존과 동일)
