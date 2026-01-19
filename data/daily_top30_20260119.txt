@@ -1,63 +1,208 @@
-﻿[네이버 인기검색 합계 Top30]
-생성시각: 2026-01-19 22:57:58
-------------------------------------------------------------
- 1. 나우로보틱스 | 합계: 285.18
-     D-1: NEW  D-2: NEW  D-3: NEW  D-4: NEW  D-5: NEW  D-6: NEW  D-7: NEW
- 2. 뉴로메카 | 합계: 119.74
-     D-1: [91m+332.27%[0m  D-2: [91m+471.01%[0m  D-3: [91m+447.26%[0m  D-4: [91m+415.68%[0m  D-5: [91m+524.30%[0m  D-6: [91m+1449.03%[0m  D-7: NEW
- 3. 삼성전자 | 합계: 112.79
-     D-1: [94m-3.38%[0m  D-2: [94m-9.27%[0m  D-3: [94m-8.94%[0m  D-4: [91m+3.75%[0m  D-5: [91m+1.70%[0m  D-6: [94m-0.16%[0m  D-7: [91m+4.44%[0m
- 4. SK하이닉스 | 합계: 77.56
-     D-1: [91m+58.80%[0m  D-2: [91m+59.39%[0m  D-3: [91m+55.96%[0m  D-4: [91m+52.62%[0m  D-5: [91m+38.18%[0m  D-6: [91m+31.24%[0m  D-7: [91m+29.18%[0m
- 5. 현대차 | 합계: 74.65
-     D-1: [91m+67.79%[0m  D-2: [91m+66.00%[0m  D-3: [91m+55.13%[0m  D-4: [91m+28.71%[0m  D-5: [91m+11.10%[0m  D-6: [91m+9.47%[0m  D-7: [91m+32.24%[0m
- 6. 알테오젠 | 합계: 53.85
-     D-1: [91m+73.43%[0m  D-2: [91m+140.40%[0m  D-3: [91m+273.18%[0m  D-4: NEW  D-5: [91m+365.83%[0m  D-6: [91m+263.85%[0m  D-7: [91m+163.71%[0m
- 7. 휴림로봇 | 합계: 45.23
-     D-1: [91m+26.94%[0m  D-2: [91m+28.46%[0m  D-3: [91m+54.69%[0m  D-4: [91m+75.65%[0m  D-5: [91m+150.58%[0m  D-6: [91m+191.81%[0m  D-7: [91m+318.02%[0m
- 8. 두산에너빌리티 | 합계: 43.82
-     D-1: [94m-16.13%[0m  D-2: [94m-5.78%[0m  D-3: [91m+1.93%[0m  D-4: [91m+29.11%[0m  D-5: [91m+17.73%[0m  D-6: [91m+11.13%[0m  D-7: [91m+3.13%[0m
- 9. 한화시스템 | 합계: 38.35
-     D-1: [91m+69.32%[0m  D-2: [91m+38.55%[0m  D-3: [91m+36.48%[0m  D-4: [91m+6.41%[0m  D-5: [91m+18.25%[0m  D-6: [91m+2.65%[0m  D-7: [94m-7.14%[0m
-10. 한화오션 | 합계: 34.12
-     D-1: [91m+35.45%[0m  D-2: [91m+28.56%[0m  D-3: [91m+2.96%[0m  D-4: [94m-11.65%[0m  D-5: [94m-22.51%[0m  D-6: [94m-26.81%[0m  D-7: [94m-28.92%[0m
-11. 포스코DX | 합계: 33.28
-     D-1: [91m+41.86%[0m  D-2: [91m+21.77%[0m  D-3: [91m+56.17%[0m  D-4: [91m+178.26%[0m  D-5: NEW  D-6: NEW  D-7: NEW
-12. NAVER | 합계: 32.67
-     D-1: [91m+21.18%[0m  D-2: [91m+9.96%[0m  D-3: [91m+9.89%[0m  D-4: [91m+2.83%[0m  D-5: [91m+27.87%[0m  D-6: [91m+36.41%[0m  D-7: [91m+61.81%[0m
-13. LG씨엔에스 | 합계: 31.71
-     D-1: [91m+59.43%[0m  D-2: [91m+33.97%[0m  D-3: [91m+81.51%[0m  D-4: [91m+248.46%[0m  D-5: NEW  D-6: NEW  D-7: NEW
-14. 현대무벡스 | 합계: 30.41
-     D-1: [91m+121.97%[0m  D-2: [91m+116.29%[0m  D-3: [91m+246.36%[0m  D-4: [91m+263.32%[0m  D-5: NEW  D-6: [91m+389.69%[0m  D-7: [91m+190.45%[0m
-15. 클로봇 | 합계: 26.48
-     D-1: [91m+126.91%[0m  D-2: [91m+207.55%[0m  D-3: NEW  D-4: NEW  D-5: NEW  D-6: NEW  D-7: NEW
-16. 기아 | 합계: 25.40
-     D-1: NEW  D-2: [91m+209.00%[0m  D-3: [91m+115.80%[0m  D-4: [91m+177.90%[0m  D-5: NEW  D-6: NEW  D-7: NEW
-17. 에코프로 | 합계: 24.37
-     D-1: [91m+108.65%[0m  D-2: [91m+128.18%[0m  D-3: [91m+124.82%[0m  D-4: [91m+60.65%[0m  D-5: [91m+35.77%[0m  D-6: [91m+20.58%[0m  D-7: [91m+19.81%[0m
-18. 모베이스전자 | 합계: 22.94
-     D-1: [91m+40.65%[0m  D-2: [91m+160.98%[0m  D-3: NEW  D-4: NEW  D-5: NEW  D-6: NEW  D-7: [91m+265.87%[0m
-19. 유진로봇 | 합계: 21.38
-     D-1: [91m+71.45%[0m  D-2: [91m+68.21%[0m  D-3: [91m+39.47%[0m  D-4: [91m+116.40%[0m  D-5: [91m+223.94%[0m  D-6: NEW  D-7: NEW
-20. 우리기술 | 합계: 20.66
-     D-1: [91m+54.41%[0m  D-2: [91m+144.79%[0m  D-3: NEW  D-4: NEW  D-5: NEW  D-6: NEW  D-7: NEW
-21. POSCO홀딩스 | 합계: 20.42
-     D-1: [94m-16.04%[0m  D-2: [94m-19.38%[0m  D-3: [94m-21.31%[0m  D-4: [94m-42.07%[0m  D-5: [94m-42.48%[0m  D-6: [94m-26.97%[0m  D-7: NEW
-22. 삼성중공업 | 합계: 18.80
-     D-1: [91m+22.24%[0m  D-2: [91m+5.44%[0m  D-3: [91m+5.09%[0m  D-4: [94m-1.52%[0m  D-5: [91m+10.13%[0m  D-6: [94m-6.56%[0m  D-7: [94m-28.22%[0m
-23. 두산로보틱스 | 합계: 15.32
-     D-1: NEW  D-2: NEW  D-3: NEW  D-4: NEW  D-5: NEW  D-6: NEW  D-7: NEW
-24. 삼성SDI | 합계: 13.71
-     D-1: NEW  D-2: NEW  D-3: [91m+35.47%[0m  D-4: [94m-28.48%[0m  D-5: [94m-29.91%[0m  D-6: [94m-27.00%[0m  D-7: [91m+8.90%[0m
-25. 한미반도체 | 합계: 12.86
-     D-1: [94m-26.89%[0m  D-2: [94m-28.24%[0m  D-3: [94m-33.26%[0m  D-4: [94m-34.92%[0m  D-5: [94m-42.12%[0m  D-6: [94m-46.44%[0m  D-7: [94m-60.64%[0m
-26. 이수스페셜티케미컬 | 합계: 12.04
-     D-1: NEW  D-2: NEW  D-3: NEW  D-4: NEW  D-5: NEW  D-6: NEW  D-7: NEW
-27. LG전자 | 합계: 11.00
-     D-1: [91m+39.95%[0m  D-2: [91m+43.23%[0m  D-3: [91m+92.64%[0m  D-4: NEW  D-5: NEW  D-6: NEW  D-7: NEW
-28. 에스피지 | 합계: 9.30
-     D-1: NEW  D-2: NEW  D-3: [91m+9.93%[0m  D-4: [94m-13.89%[0m  D-5: [91m+20.47%[0m  D-6: NEW  D-7: NEW
-29. 에이비엘바이오 | 합계: 8.99
-     D-1: [94m-30.15%[0m  D-2: [94m-3.12%[0m  D-3: [94m-1.10%[0m  D-4: NEW  D-5: [91m+29.91%[0m  D-6: NEW  D-7: [94m-26.91%[0m
-30. 위메이드 | 합계: 8.31
-     D-1: [94m+0.00%[0m  D-2: NEW  D-3: NEW  D-4: NEW  D-5: NEW  D-6: NEW  D-7: NEW
+import os
+import re
+import csv
+import glob
+import datetime as dt
+from collections import defaultdict
+from typing import Dict, List
+
+# ===== Selenium / BS4 =====
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
+from bs4 import BeautifulSoup
+
+
+# ---------------------------
+# 기본 유틸
+# ---------------------------
+def now_kst() -> dt.datetime:
+    return dt.datetime.now(dt.timezone(dt.timedelta(hours=9)))
+
+
+def ensure_data_dir():
+    os.makedirs("data", exist_ok=True)
+
+
+def to_float(s: str) -> float:
+    try:
+        return float(s.replace(",", "").replace("%", ""))
+    except:
+        return 0.0
+
+
+# ---------------------------
+# 오래된 파일 정리
+# ---------------------------
+def cleanup_old_csv(days: int = 3):
+    today = now_kst().date()
+    for fp in glob.glob("data/naver_top_searchratio_*.csv"):
+        m = re.search(r"_(\d{8})_", fp)
+        if not m:
+            continue
+        d = dt.datetime.strptime(m.group(1), "%Y%m%d").date()
+        if (today - d).days > days:
+            os.remove(fp)
+
+
+def cleanup_old_txt(days: int = 14):
+    today = now_kst().date()
+    for fp in glob.glob("data/daily_top30_*.txt"):
+        m = re.search(r"_(\d{8})\.txt$", fp)
+        if not m:
+            continue
+        d = dt.datetime.strptime(m.group(1), "%Y%m%d").date()
+        if (today - d).days > days:
+            os.remove(fp)
+
+
+# ---------------------------
+# 1) 네이버 인기검색 크롤링
+# ---------------------------
+def fetch_top30() -> List[Dict]:
+    options = Options()
+    options.add_argument("--headless=new")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+
+    driver = webdriver.Chrome(
+        service=Service(ChromeDriverManager().install()),
+        options=options
+    )
+
+    driver.get("https://finance.naver.com/sise/lastsearch2.naver")
+
+    WebDriverWait(driver, 5).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, "table.type_5"))
+    )
+
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+    driver.quit()
+
+    rows = []
+    ts = now_kst().strftime("%Y-%m-%d %H:%M:%S")
+
+    for tr in soup.select("table.type_5 tbody tr")[:30]:
+        tds = tr.find_all("td")
+        if len(tds) < 3:
+            continue
+        name = tds[1].get_text(strip=True)
+        score = to_float(tds[-1].get_text(strip=True))
+        rows.append({
+            "name": name,
+            "score": round(score, 2),
+            "ts": ts
+        })
+
+    return rows
+
+
+# ---------------------------
+# 2) 스냅샷 CSV 저장
+# ---------------------------
+def save_snapshot(rows: List[Dict]):
+    ensure_data_dir()
+    fn = f"data/naver_top_searchratio_{now_kst().strftime('%Y%m%d_%H%M')}.csv"
+    with open(fn, "w", newline="", encoding="utf-8-sig") as f:
+        w = csv.DictWriter(f, fieldnames=["name", "score", "ts"])
+        w.writeheader()
+        w.writerows(rows)
+
+    cleanup_old_csv()
+
+
+# ---------------------------
+# 3) 최근 12개 CSV 합산
+# ---------------------------
+def aggregate_last_12() -> Dict[str, float]:
+    files = sorted(
+        glob.glob("data/naver_top_searchratio_*.csv"),
+        reverse=True
+    )[:12]
+
+    acc = defaultdict(float)
+    for fp in files:
+        with open(fp, encoding="utf-8-sig") as f:
+            for r in csv.DictReader(f):
+                acc[r["name"]] += float(r["score"])
+
+    return acc
+
+
+# ---------------------------
+# 4) 과거 daily 파일 로드
+# ---------------------------
+def load_daily(date: str) -> Dict[str, float]:
+    fn = f"data/daily_top30_{date}.txt"
+    if not os.path.exists(fn):
+        return {}
+
+    data = {}
+    with open(fn, encoding="utf-8-sig") as f:
+        for line in f:
+            if "| 합계:" in line:
+                name = line.split(".")[1].split("|")[0].strip()
+                total = float(line.split("합계:")[1].strip())
+                data[name] = total
+    return data
+
+
+# ---------------------------
+# 5) daily_top30 생성 (비교 포함)
+# ---------------------------
+def save_daily_top30(today_map: Dict[str, float]):
+    ensure_data_dir()
+    today = now_kst().strftime("%Y%m%d")
+
+    past = {
+        d: load_daily((now_kst() - dt.timedelta(days=d)).strftime("%Y%m%d"))
+        for d in range(1, 8)
+    }
+
+    top30 = sorted(today_map.items(), key=lambda x: -x[1])[:30]
+
+    lines = []
+    lines.append("[네이버 인기검색 합계 Top30]")
+    lines.append(f"생성시각: {now_kst().strftime('%Y-%m-%d %H:%M:%S')}")
+    lines.append("-" * 60)
+
+    for i, (name, total) in enumerate(top30, 1):
+        lines.append(f"{i:2d}. {name} | 합계: {total:.2f}")
+
+        comps = []
+        for d in range(1, 8):
+            prev_map = past[d]
+            if name not in prev_map:
+                comps.append(f"D-{d}: NEW")
+            else:
+                prev = prev_map[name]
+                chg = (total - prev) / prev * 100
+                if chg > 0:
+                    comps.append(f"D-{d}: ▲ +{chg:.2f}%")
+                elif chg < 0:
+                    comps.append(f"D-{d}: ▼ {chg:.2f}%")
+                else:
+                    comps.append(f"D-{d}: 0.00%")
+
+        lines.append("     " + "  ".join(comps))
+
+    out = f"data/daily_top30_{today}.txt"
+    with open(out, "w", encoding="utf-8-sig") as f:
+        f.write("\n".join(lines))
+
+    cleanup_old_txt()
+
+
+# ---------------------------
+# 메인
+# ---------------------------
+if __name__ == "__main__":
+    rows = fetch_top30()
+    save_snapshot(rows)
+
+    score_map = aggregate_last_12()
+    save_daily_top30(score_map)
